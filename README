@@ -1,0 +1,52 @@
+Draws a small part of the Mandelbrot Set using SDL2.0.
+
+Uncomment line 5 in main.cpp to draw the whole set.
+
+Uncomment line 121 in fractal.cpp to draw just the fractal.
+
+Notes:
+
+1. Lines 28 and 29 are the values the custom location is centered at.
+
+2. Lines 31 and 32 are the min and max values of x, which, along with the width of the rendering
+   window, determines the level of magnification.
+
+3. Currently, you need to know the point and min and max values of x for the image you want to draw.
+
+4. Execution time is heavily affected by the window dimensions (lines 9 and 10).
+
+5. Execution time is also heavily affected with very large values of MAX_ITERATION when the image
+   being drawn contains many points that are considered a part of the Mandelbrot Set. Currently,
+   this program has no boundary detection to check if a point is part of the set before iterating
+   the fractal's formula, so those points will always iterate the maximum number of times.
+
+   The first sample location is a good example - it takes a little over 1 minute to finish drawing
+   and display the final image, whereas the location I used for the image shown in class took around
+   3 seconds.
+
+   However, some locations at high magnification will appear to be a part of the set (i.e., a black
+   image) with too low of a value for MAX_ITERATION.
+
+
+6. Here are a couple sample values for other interesting locations:
+   (Just replace the appropriate values in main.cpp with the ones below)
+
+/* Sample 1
+const int MAX_ITERATION = 14000;
+
+const double x = -0.74364386269;
+const double y =  0.13182590271;
+
+const double min_x = -0.74364393032000194;
+const double max_x = -0.74364379505999806;
+*/
+
+/* Sample 2
+const int MAX_ITERATION = 2500;
+
+const double x = -0.743861259985424936;
+const double y =  0.131919520083265748;
+
+const double min_x = -0.7438631541940171;
+const double max_x = -0.7438593657768327;
+*/
